@@ -40,22 +40,19 @@
 </head>
 <body>
   <header id="header">
-    
     <div class="container">
-       <!-- Add your photo as a display picture (DP) -->
-       <h2>
-     <span style="padding: 10px;">
-  <img src="assets/img/post.png" alt="Lasitha Heenkenda" class="dp-img" style="max-width: 200px;">
-</span></h2>
-
-      
-
-      
+      <!-- Add your photo as a display picture (DP) -->
+      <h2>
+        <div style="padding: 10px;">
+          <img src="assets/img/post.png" alt="Lasitha Heenkenda" class="dp-img" style="max-width: 200px;">
+        </div>
+      </h2>
+  
       <h1><span><a href="index.html">Lasitha Heenkenda</a></span></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a> -->
-      <h2><span>I'm an enthusiastic <span>Software Engineer</span> from Sri Lanka</span></h2>
-
+      
+      <h2><span id="profession"></span></h2>
+  
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link active" href="#header">Home</a></li>
@@ -66,7 +63,7 @@
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
-
+  
       <div class="social-links">
         <a href="https://www.linkedin.com/in/lasitha-heenkenda" class="linkedin"><i class="bi bi-linkedin"></i></a>
         <a href="https://github.com/lasitha-theWolf" class="twitter"><i class="bi bi-github"></i></a>
@@ -74,11 +71,64 @@
         <a href="https://www.facebook.com/lasitha.dilshan.7?mibextid=LQQJ4d" class="facebook"><i class="bi bi-facebook"></i></a>
         <a href="https://www.youtube.com/@wolfcoder389" class="twitter"><i class="bi bi-youtube"></i></a>
       </div>
-      
-     
-
     </div>
   </header><!-- End Header -->
+  
+  <script>
+    // Define an array of sentences
+    var sentences = [
+      "I'm an enthusiastic Software Engineer.",
+      "I enjoy solving complex problems..",
+      "Experienced in full-stack development.",
+      "Proficient in mobile app development."
+    ];
+  
+    // Get the profession element
+    var professionElement = document.getElementById("profession");
+  
+    // Function to simulate typing effect
+    function typeEffect(element, sentence, delay) {
+      var index = 0;
+  
+      function type() {
+        if (index < sentence.length) {
+          element.innerHTML += sentence.charAt(index);
+          index++;
+          setTimeout(type, delay);
+        }
+      }
+  
+      type();
+    }
+  
+    // Function to cycle through sentences
+    function cycleSentences() {
+      var currentIndex = 0;
+  
+      // Function to update the profession element with the current sentence
+      function updateProfession() {
+        professionElement.innerHTML = ''; // Clear previous content
+        typeEffect(professionElement, sentences[currentIndex], 100);
+  
+        // Move to the next sentence
+        currentIndex++;
+        if (currentIndex >= sentences.length) {
+          currentIndex = 0; // Start from the beginning
+        }
+      }
+  
+      // Initial update
+      updateProfession();
+  
+      // Schedule updates every 5 seconds (adjust as needed)
+      setInterval(updateProfession, 5000);
+    }
+  
+    // Call the cycleSentences function
+    cycleSentences();
+  </script>
+  
+  
 
   <!-- ======= About Section ======= -->
   <section id="about" class="about">
