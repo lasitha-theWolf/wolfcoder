@@ -74,11 +74,13 @@
     </div>
   </header><!-- End Header -->
   
+  <p id="profession"></p>
+
   <script>
     // Define an array of sentences
     var sentences = [
       "I'm an enthusiastic Software Engineer.",
-      "I enjoy solving complex problems..",
+      "I enjoy solving complex problems.",
       "Experienced in full-stack development.",
       "Proficient in mobile app development."
     ];
@@ -124,8 +126,10 @@
       setInterval(updateProfession, 5000);
     }
   
-    // Call the cycleSentences function
-    cycleSentences();
+    // Call the cycleSentences function after the page has finished loading
+    window.onload = function() {
+      cycleSentences();
+    };
   </script>
   
   
