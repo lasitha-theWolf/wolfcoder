@@ -74,63 +74,63 @@
     </div>
   </header><!-- End Header -->
   
-  <p id="profession"></p>
-
-  <script>
-    // Define an array of sentences
-    var sentences = [
-      "I'm an enthusiastic Software Engineer.",
-      "I enjoy solving complex problems.",
-      "Experienced in full-stack development.",
-      "Proficient in mobile app development."
-    ];
+  <body>
+    <p id="profession"></p>
   
-    // Get the profession element
-    var professionElement = document.getElementById("profession");
+    <script>
+      // Define an array of sentences
+      var sentences = [
+        "I'm an enthusiastic Software Engineer.",
+        "I enjoy solving complex problems.",
+        "Experienced in full-stack development.",
+        "Proficient in mobile app development."
+      ];
   
-    // Function to simulate typing effect
-    function typeEffect(element, sentence, delay) {
-      var index = 0;
+      // Function to simulate typing effect
+      function typeEffect(element, sentence, delay) {
+        var index = 0;
   
-      function type() {
-        if (index < sentence.length) {
-          element.innerHTML += sentence.charAt(index);
-          index++;
-          setTimeout(type, delay);
+        function type() {
+          if (index < sentence.length) {
+            element.innerHTML += sentence.charAt(index);
+            index++;
+            setTimeout(type, delay);
+          }
         }
+  
+        type();
       }
   
-      type();
-    }
+      // Function to cycle through sentences
+      function cycleSentences() {
+        var professionElement = document.getElementById("profession");
+        var currentIndex = 0;
   
-    // Function to cycle through sentences
-    function cycleSentences() {
-      var currentIndex = 0;
+        // Function to update the profession element with the current sentence
+        function updateProfession() {
+          professionElement.innerHTML = ''; // Clear previous content
+          typeEffect(professionElement, sentences[currentIndex], 100);
   
-      // Function to update the profession element with the current sentence
-      function updateProfession() {
-        professionElement.innerHTML = ''; // Clear previous content
-        typeEffect(professionElement, sentences[currentIndex], 100);
-  
-        // Move to the next sentence
-        currentIndex++;
-        if (currentIndex >= sentences.length) {
-          currentIndex = 0; // Start from the beginning
+          // Move to the next sentence
+          currentIndex++;
+          if (currentIndex >= sentences.length) {
+            currentIndex = 0; // Start from the beginning
+          }
         }
+  
+        // Initial update
+        updateProfession();
+  
+        // Schedule updates every 5 seconds (adjust as needed)
+        setInterval(updateProfession, 5000);
       }
   
-      // Initial update
-      updateProfession();
-  
-      // Schedule updates every 5 seconds (adjust as needed)
-      setInterval(updateProfession, 5000);
-    }
-  
-    // Call the cycleSentences function after the page has finished loading
-    window.onload = function() {
-      cycleSentences();
-    };
-  </script>
+      // Call the cycleSentences function after the page has finished loading
+      window.onload = function() {
+        cycleSentences();
+      };
+    </script>
+  </body>
   
   
 
