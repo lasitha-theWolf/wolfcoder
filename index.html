@@ -32,14 +32,27 @@
 <body>
 
   <!-- ======= Header ======= -->
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lasitha Heenkenda</title>
+  <link href="styles.css" rel="stylesheet">
+</head>
+<body>
   <header id="header">
     <div class="container">
-
+      <!-- Add your photo as a display picture (DP) -->
+      <h2>
+        <div style="padding: 10px;">
+          <img src="assets/img/post.png" alt="Lasitha Heenkenda" class="dp-img" style="max-width: 200px;">
+        </div>
+      </h2>
+  
       <h1><span><a href="index.html">Lasitha Heenkenda</a></span></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a> -->
-      <h2><span>I'm a enthusiastic <span>Software Engineer</span> from Sri Lanka</span></h2>
-
+      
+      <h2><span id="profession"></span></h2>
+  
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link active" href="#header">Home</a></li>
@@ -50,19 +63,76 @@
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
-
+  
       <div class="social-links">
         <a href="https://www.linkedin.com/in/lasitha-heenkenda" class="linkedin"><i class="bi bi-linkedin"></i></a>
         <a href="https://github.com/lasitha-theWolf" class="twitter"><i class="bi bi-github"></i></a>
         <a href="https://instagram.com/_wolf_coder_?igshid=NTdlMDg3MTY=" class="instagram"><i class="bi bi-instagram"></i></a>
         <a href="https://www.facebook.com/lasitha.dilshan.7?mibextid=LQQJ4d" class="facebook"><i class="bi bi-facebook"></i></a>
         <a href="https://www.youtube.com/@wolfcoder389" class="twitter"><i class="bi bi-youtube"></i></a>
-      
-        
       </div>
-
     </div>
   </header><!-- End Header -->
+  
+  <body>
+    <p id="profession"></p>
+  
+    <script>
+      // Define an array of sentences
+      var sentences = [
+        "I'm an enthusiastic Software Engineer.",
+        "I enjoy solving complex problems.",
+        "Experienced in full-stack development.",
+        "Proficient in mobile app development."
+      ];
+  
+      // Function to simulate typing effect
+      function typeEffect(element, sentence, delay) {
+        var index = 0;
+  
+        function type() {
+          if (index < sentence.length) {
+            element.innerHTML += sentence.charAt(index);
+            index++;
+            setTimeout(type, delay);
+          }
+        }
+  
+        type();
+      }
+  
+      // Function to cycle through sentences
+      function cycleSentences() {
+        var professionElement = document.getElementById("profession");
+        var currentIndex = 0;
+  
+        // Function to update the profession element with the current sentence
+        function updateProfession() {
+          professionElement.innerHTML = ''; // Clear previous content
+          typeEffect(professionElement, sentences[currentIndex], 100);
+  
+          // Move to the next sentence
+          currentIndex++;
+          if (currentIndex >= sentences.length) {
+            currentIndex = 0; // Start from the beginning
+          }
+        }
+  
+        // Initial update
+        updateProfession();
+  
+        // Schedule updates every 5 seconds (adjust as needed)
+        setInterval(updateProfession, 5000);
+      }
+  
+      // Call the cycleSentences function after the page has finished loading
+      window.onload = function() {
+        cycleSentences();
+      };
+    </script>
+  </body>
+  
+  
 
   <!-- ======= About Section ======= -->
   <section id="about" class="about">
@@ -82,7 +152,7 @@
         <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
           <h3>Software Engineer &amp; Web Developer</h3>
           <p class="fst-italic">
-            Introducing Lasitha Heenkenda, Undergraduate
+            "Introducing Lasitha Heenkenda, Undergraduate
              2nd year IT student specializing in Software Engineering at SLIIT.
           </p>
           <div class="row">
